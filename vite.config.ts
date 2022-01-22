@@ -10,6 +10,7 @@ import Markdown from 'vite-plugin-md'
 // https://vitejs.dev/config/
 export default defineConfig({
   // vue({ include: [/\.vue$/, /\.md$/] })
+  base: './',
   plugins: [
     vue(),
     mdPlugin.plugin({

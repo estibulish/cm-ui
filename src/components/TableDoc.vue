@@ -7,8 +7,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(itemx, index) in body" :key="index">
-        <td v-for="(itemy, indey) in itemx" :key="indey">{{ itemy }}</td>
+      <tr v-for="(item, index) in body" :key="index">
+        <td v-for="(items, indey) in item" :key="indey">{{ items }}</td>
       </tr>
     </tbody>
   </table>

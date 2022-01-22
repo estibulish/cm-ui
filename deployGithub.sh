@@ -8,4 +8,4 @@ git branch -M master &&
 git remote add origin https://github.com/estibulish/cm-ui.git &&
 git push -f -u origin master &&
 cd -   
-echo https://coderyjw.github.io/jw-ui-website/
+echo https://estibulish.github.io/cm-ui/

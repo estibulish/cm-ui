@@ -21,7 +21,7 @@
       <component
         v-if="current"
         :is="current"
-        :key="current.props.title"
+        :key="current.props?.title || 'id'"
       ></component>
     </div>
   </div>

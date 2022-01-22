@@ -37,7 +37,7 @@ const sourceCode = ref('')
 
 const html = computed(() => {
   return Prism.highlight(
-    component?.__sourceCode,
+    component?.__sourceCode || '',
     Prism.languages.html,
     "html"
   );
