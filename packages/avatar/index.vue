@@ -1,0 +1,129 @@
+<template>
+  <span class="cm-avatar" :class="classes" :style="styles">
+    <img
+      v-if="src && !hasLoadError"
+      :src="src"
+      :alt="alt"
+      @error="handleError"
+    />
+    <slot></slot>
+  </span>
+</template>
+
+<script setup lang="ts">
+import { computed, ref, watch } from "vue";
+const props = defineProps({
+  size: {
+    type: [String, Number],
+    default: "default",
+  },
+  src: {
+    type: String,
+    default: "",
+  },
+  shape: {
+    type: String,
+    default: "circle",
+  },
+  alt: {
+    type: String,
+  },
+  color: {
+    type: String,
+  },
+  backgroundColor: {
+    type: String,
+  },
+});
+
+const emits = defineEmits(["error"]);
+
+const hasLoadError = ref(false);
+const { size, shape, color, backgroundColor } = props;
+const classes = computed(() => {
+  return {
+    [`cm-avatar-${size}`]: typeof size === "string",
+    [`cm-avatar-${shape}`]: shape,
+  };
+});
+
+const styles = computed(() => {
+  return {
+    width: typeof size === "number" ? `${size}px` : "",
+    height: typeof size === "number" ? `${size}px` : "",
+    color,
+    backgroundColor,
+  };
+});
+
+watch(
+  () => props.src,
+  () => (hasLoadError.value = false)
+);
+
+const handleError = (e: Event) => {
+  hasLoadError.value = true;
+  emits("error", e);
+};
+
+</script>
+
+<script lang="ts">
+export default {
+  name: 'CmAvatar'
+}
+</script>
+
+
+<style lang="scss" scoped>
+$font-size: 14px;
+$small-size: 24px;
+$default-size: 40px;
+$large-size: 56px;
+
+$white: #fff;
+$default-background: #c0c4cc;
+.cm-avatar {
+  background-color: $default-background;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size;
+  color: $white;
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cm-avatar-small {
+  width: $small-size;
+  height: $small-size;
+}
+
+.cm-avatar-default {
+  width: $default-size;
+  height: $default-size;
+}
+
+.cm-avatar-large {
+  width: $large-size;
+  height: $large-size;
+}
+
+.cm-avatar-circle {
+  /* background-color: transparent; */
+  border-radius: 100%;
+  > img {
+    border-radius: 100%;
+  }
+}
+
+.cm-avatar-square {
+  /* background-color: transparent; */
+  border-radius: 3px;
+  > img {
+    border-radius: 3px;
+  }
+}
+</style>
