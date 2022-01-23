@@ -28,7 +28,7 @@
   </div>
 
   <div style="width: 100%">
-    <cm-button icon="icon-jiahao_o" theme="default" circle></cm-button>
+    <cm-button icon="icon-jiahao_o"  theme="default" circle></cm-button>
     <cm-button icon="icon-jiahao_o" theme="primary" circle></cm-button>
     <cm-button icon="icon-jiahao_o" theme="info" circle></cm-button>
     <cm-button icon="icon-jiahao_o" theme="success" circle></cm-button>

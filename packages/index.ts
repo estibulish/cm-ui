@@ -7,7 +7,7 @@ import CmSwitch from "./switch/index.vue";
 import CmDialog from "./dialog/index.vue";
 import CmTabs from "./tabs/index.vue";
 import CmTab from "./tab/index.vue";
-import { openDialog } from "./dialog/openDialog";
+import Modal from "./dialog/modal";
 import 'lib/font/font.js'
 
 export { 
@@ -19,7 +19,7 @@ export {
   CmDialog,
   CmTabs,
   CmTab,
-  openDialog 
+  Modal 
 }
 
 const components = [
@@ -30,7 +30,8 @@ const components = [
   CmSwitch,
   CmDialog,
   CmTabs,
-  CmTab
+  CmTab,
+  Modal
 ]
 
 

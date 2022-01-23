@@ -8,16 +8,21 @@
       ></div>
       <div class="cm-dialog">
         <div class="cm-dialog-wrapper">
-          <header>
-            <slot name="title">{{ title }}</slot>
-            <span class="cm-dialog-close" @click="close"></span>
-          </header>
-          <main>
-            <slot>
-              <p>这是一条消息</p>
-              <p>这是一条消息</p>
-              <p>这是一条消息</p>
-            </slot>
+          <main class="main">
+            <cm-icon :type="icon" :color="iconColor[ModalType]"></cm-icon>
+            <div>
+                <h3 class="modal-title">
+                    <slot name="title">
+                        Do you want to delete these items?
+                    </slot>
+                </h3>
+                <div class="modal-content">
+                    <slot name="content">
+                        When clicked the OK button, this dialog will be closed after 1 second
+                    </slot>
+                </div>
+                
+            </div>
           </main>
           <footer>
             <slot name="footer">
@@ -32,8 +37,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watchEffect } from "vue";
+import { onMounted, reactive, ref, watchEffect } from "vue";
 import CmButton from "lib/button/index.vue";
+import CmIcon from "lib/icon/index.vue";
+
+interface Method {
+  [key: string]: string
+}
+
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -51,7 +62,16 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  confirm: {
+  ModalType: {
+    type: String,
+    default: 'info',
+    value: ['info','success','error','warning','confirm']
+  },
+  icon: {
+    type: String,
+    default: 'icon-gantanhao-quan'
+  },
+  onOk: {
     type: Function,
   },
   cancel: {
@@ -59,7 +79,15 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue", "onOverlayClick"]);
+const iconColor: Method = reactive({
+    info: '#909399',
+    success: '#67c23a',
+    warning: '#f0a020',
+    error: '#d03050',
+    confirm: '#4098fc'
+})
+
+const emit = defineEmits(["update:modelValue"]);
 
 const close = () => {
   emit("update:modelValue", false);
@@ -69,11 +97,10 @@ const onOverlayClick = () => {
   if (props.overlayClosable) {
     close();
   }
-  emit("onOverlayClick");
 };
 
 const confirm = () => {
-  if (props.confirm?.() !== false) {
+  if (props.onOk?.() !== false) {
     close();
   }
 };
@@ -94,7 +121,7 @@ watchEffect(() => {
 </script>
 <script lang="ts">
 export default {
-  name: "CmDialog",
+  name: "CmModal",
 };
 </script>
 
@@ -129,7 +156,7 @@ $primary-color: #36ad6a;
     transform: translate(-50%, -50%);
     z-index: 11;
     max-width: calc(100vw - 32px);
-    width: 400px;
+    width: 446px;
     background: white;
 
     > header {
@@ -142,13 +169,21 @@ $primary-color: #36ad6a;
     }
     > main {
       padding: 30px 20px;
+      display: flex;
+      > div {
+          margin-left: 10px;
+      }
+      .modal-title {
+          margin-bottom: 10px;
+      }
+      .modal-content {
+          color: #4e4e4e;
+      }
     }
     > footer {
       padding: 10px 20px;
       text-align: right;
-      border-top: 1px solid #f0f0f0;
       box-sizing: border-box;
-
       .cm-button + .cm-button {
         margin-left: 12px;
       }

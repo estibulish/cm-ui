@@ -11,3 +11,10 @@ declare module "*.md" {
   const str: string;
   export default str;
 }
+
+
+
+declare module "f-cm-ui" {
+  import CmUi from 'f-cm-ui'
+  export default CmUi;
+}

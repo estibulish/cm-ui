@@ -3,13 +3,13 @@
     <div class="cm-tabs-header" ref="container">
       <div
         class="cm-tabs-header-item"
-        :class="{ 'is-active': modelValue === title }"
-        v-for="(title, index) in titles"
+        :class="{ 'is-active': modelValue === item.title,'is-disabled': item.disabled }"
+        v-for="(item, index) in tabList"
         :key="index"
-        @click="handleTabsItemClick(title)"
-        :ref="getHeaderItemRef(title)"
+        @click="handleTabsItemClick(item)"
+        :ref="getHeaderItemRef(item.title)"
       >
-        {{ title }}
+        {{ item.title }}
       </div>
       <div
         class="cm-tabs-header-indicator"
@@ -77,14 +77,21 @@ const renderIndicator = () => {
   }
 };
 
+const tabList: any = []
+slots.map((tag: any) => {
+    tabList.push({
+        title: tag.props.title,
+        disabled: tag.props.disabled
+    })
+});
 
-const titles = slots.map((tag: any) => tag.props.title);
 const current = computed(() => { 
   return slots.find((tag: any) => tag.props.title === props.modelValue);
 });
 
-const handleTabsItemClick = (title: string) => {
-  emits("update:modelValue", title);
+const handleTabsItemClick = (item: any) => {
+  if (item.disabled) return
+  emits("update:modelValue", item.title);
 };
 
 const getHeaderItemRef = (title: string) => {
@@ -132,6 +139,12 @@ $h: 40px;
           color: $active-color;
         }
       }
+
+      .is-disabled {
+        cursor: not-allowed;
+        color: $border-color;
+      }  
+
       &-item:first-of-type {
         padding-left: 0;
       }

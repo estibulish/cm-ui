@@ -4,6 +4,7 @@
     <Preview :component="DialogBase" />
     <Preview :component="DialogClick" />
     <Preview :component="Dialog" />
+    <Preview :component="DialogConfirm" />
     <TableDoc title="属性" type="prop" :body="propDoc" />
     <TableDoc title="插槽" type="slot" :body="slotDoc" />
     <TableDoc title="事件" type="event" :body="eventDoc" />
@@ -16,6 +17,7 @@ import TableDoc from "@/components/TableDoc.vue";
 import DialogBase from "./preview/DialogBase.preview.vue"
 import DialogClick from "./preview/DialogClick.preview.vue"
 import Dialog from "./preview/Dialog.preview.vue"
+import DialogConfirm from "./preview/DialogConfirm.preview.vue"
 
 
 const propDoc = [
@@ -38,7 +40,7 @@ const slotDoc = [
 ];
 
 const eventDoc = [
-  ["confirm", "点击确认按钮的回调", "-"],
+  ["onOk", "点击确认按钮的回调", "-"],
   ["cancel", "点击取消按钮的回调", "-"],
   ["onOverlayClick", "点击遮罩的回调", "-"],
 ];

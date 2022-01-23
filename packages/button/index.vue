@@ -1,15 +1,15 @@
 <template>
   <button class="cm-button" :class="classes">
     <span v-if="loading" class="cm-loadingIndicator"></span>
-    <cm-icon :type="icon" :style="iconStyle" v-if="icon && !loading && iconPosition == 'left' "></cm-icon>
+    <cm-icon :type="icon" :color="theme === 'default' ? '#262626' : '#fff' " v-if="icon && !loading && iconPosition == 'left' "></cm-icon>
     <slot></slot>
-    <cm-icon :type="icon" :style="iconStyle" v-if="icon && !loading && iconPosition == 'right'"></cm-icon>
+    <cm-icon :type="icon" :color="theme === 'default' ? '#262626' : '#fff' " v-if="icon && !loading && iconPosition == 'right'"></cm-icon>
   </button>
 </template>
 
 <script setup lang="ts">
 import { computed } from "@vue/runtime-core";
-import CmIcon from "../icon/index.vue";
+import CmIcon from "lib/icon/index.vue";
 const props = defineProps({
   theme: {
     type: String,
@@ -75,14 +75,14 @@ export default {
 
 
 <style lang="scss" scoped>
-$h-default: 40px;
-$h-small: 32px;
+$h-default: 32px;
+$h-small: 20px;
 $h-large: 48px;
 $white: #fff;
 $default-color: #333;
-$primary-color: #36ad6a;
-$info-color: #4098fc;
-$success-color: #85ce61;
+$primary-color: #4098fc;
+$info-color: #909399;
+$success-color: #67c23a;
 $warning-color: #f0a020;
 $error-color: #d03050;
 $grey: grey;

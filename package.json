@@ -1,5 +1,5 @@
 {
-  "name": "cm-ui",
+  "name": "f-cm-ui",
   "version": "0.0.1",
   "private": false,
   "description": "仿造JW UI的组件库",
@@ -25,6 +25,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "f-cm-ui": "^0.0.1",
     "github-markdown-css": "^5.1.0",
     "import": "^0.0.6",
     "prismjs": "^1.26.0",
