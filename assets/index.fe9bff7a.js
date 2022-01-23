@@ -1,0 +1,14 @@
+import{P as a,T as u}from"./TableDoc.40a9b102.js";import{_ as s}from"./index.2b93dd2f.js";import{r as p,o as t,b as r,j as o,F as l,d as x,i as n,k as m}from"./vendor.a9eeee09.js";function _(e){e.__sourceCode=`<template>\r
+  <cm-icon type="icon-tubiao-dianchiman"></cm-icon>\r
+  <cm-icon type="icon-tubiao-dianchiman" color="#4ad361"></cm-icon>\r
+</template>`,e.__sourceCodeTitle="\u57FA\u7840\u7528\u6CD5"}const y={};function f(e,i){const c=p("cm-icon");return t(),r(l,null,[o(c,{type:"icon-tubiao-dianchiman"}),o(c,{type:"icon-tubiao-dianchiman",color:"#4ad361"})],64)}typeof _=="function"&&_(y);var F=s(y,[["render",f]]);function d(e){e.__sourceCode=`<template>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.1"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.2"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.3"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.4"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.5"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.6"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.7"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="0.9"></cm-icon>\r
+  <cm-icon type="icon-shixin" color="#e64e65" opacity="1"></cm-icon>\r
+</template>`,e.__sourceCodeTitle="\u6DF1\u5EA6"}const h={};function b(e,i){const c=p("cm-icon");return t(),r(l,null,[o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.1"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.2"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.3"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.4"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.5"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.6"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.7"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"0.9"}),o(c,{type:"icon-shixin",color:"#e64e65",opacity:"1"})],64)}typeof d=="function"&&d(h);var E=s(h,[["render",b]]);const D={class:"icon-doc-wrapper"},v=n("h1",null,"Icon \u56FE\u6807",-1),C=n("p",null,[m(" CM-UI \u63A8\u8350\u4F7F\u7528 "),n("a",{style:{"text-decoration":"underline",color:"#18a058"},href:"https://www.xicons.org/#/",target:"_blank"},"xicons"),m(" \u4F5C\u4E3A\u56FE\u6807\u5E93\u3002 ")],-1),B={class:"preview-wrapper"},j=x({setup(e){const i=[["color","\u56FE\u6807\u989C\u8272","string","-","-"],["depth","\u56FE\u6807\u6DF1\u5EA6","number","-","10"],["size","\u56FE\u6807\u5927\u5C0F\uFF08\u5F53\u4E0D\u6307\u5B9A\u5355\u4F4D\u65F6\uFF0C\u9ED8\u8BA4\u5355\u4F4D: px\uFF09","number / string","-","40px"]],c=[["defalut","\u81EA\u5B9A\u4E49\u9ED8\u8BA4\u5185\u5BB9"]];return(A,w)=>(t(),r("div",D,[v,C,n("div",B,[o(a,{component:F}),o(a,{component:E}),o(u,{title:"\u5C5E\u6027",type:"prop",body:i}),o(u,{title:"\u63D2\u69FD",type:"slot",body:c})])]))}});export{j as default};
